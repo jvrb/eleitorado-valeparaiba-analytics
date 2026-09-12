@@ -1,8 +1,11 @@
 from operator import itemgetter
 import pandas as pd
+import os
 
-baseDados2022 = 'base_Dados_Vale_Paraiba_2022.csv'
-baseDados2018 = 'base_Dados_Vale_Paraiba_2018.csv'
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+baseDados2018 = os.path.join(BASE_DIR, 'base_Dados_Vale_Paraiba_2018.csv')
+baseDados2022 = os.path.join(BASE_DIR, 'base_Dados_Vale_Paraiba_2022.csv')
 
 def pesquisaEscolaridade(cidade, genero, estadoCivil, graph, ano):
     print(cidade, genero, estadoCivil, graph, ano)
