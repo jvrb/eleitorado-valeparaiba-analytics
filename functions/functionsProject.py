@@ -2,7 +2,7 @@ from operator import itemgetter
 import pandas as pd
 import os
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 baseDados2018 = os.path.join(BASE_DIR, 'base_Dados_Vale_Paraiba_2018.csv')
 baseDados2022 = os.path.join(BASE_DIR, 'base_Dados_Vale_Paraiba_2022.csv')
