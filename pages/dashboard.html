@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap" rel="stylesheet">
-    <link rel= "stylesheet" type= "text/css" href="{{ url_for('static',filename='styles/dashboard.css') }}">
+    <link rel= "stylesheet" type= "text/css" href="../static/styles/dashboard.css">
 
 
     <!-- Bootstrap CSS -->
@@ -26,97 +26,112 @@
     <title>Programoid - Análise do Eleitorado</title>
 </head>
 <body>
+  <section id="container">
+    <div class="sidebar">
+      <a href="../pages/dashboard.html"><img src="../static/images/search.png" class="activea" alt="Dashaboard"></a><br>
+      <a href="../pages/dowload.html"><img src="../static/images/dowload.png" class="activea" alt="Download"></a><br>
+      <a href="../pages/index.html"><img src="../static/images/home.png" class="activea" alt="Página Inicial"></a><br>
+      <a href="../pages/documentation.html"><img src="../static/images/engrenagem.png" class="activea" alt="Documetação"></a>
+    </div>
 
+    <section class="content">
+      <div class="navbar">
 
-  <section class="content">
-  <div class="sidebar">
-
-      <a href="../pages/dashboard.html"><img src="../static/images/search.png" class="activea" alt=""></a><br>
-      <a href="../pages/dowload.html"><img src="../static/images/dowload.png" class="activea" alt=""></a><br>
-      <a href="../pages/index.html"><img src="../static/images/home.png" class="activea" alt=""></a><br>
-      <a href="../pages/documentation.html"><img src="../static/images/engrenagem.png" class="activea" alt=""></a>
-  </div>
-
-  <div class="navbar">
-
-    <form method="get" action="{{url_for('resultSearch')}}">
-        <select name="cidade" class="custom-select my-1 mr-sm-2">
+        <form method="get" action="{{url_for('resultSearch')}}">
+            <div class="select-wrap">
+              <label for="cidade">Cidade</label>
+              <select id="cidade" name="cidade" class="custom-select mr-sm-2">
                 <option value="">SELECIONE A CIDADE</option>
-                <option value="APARECIDA">Aparecida</option>
-                <option value="ARAPEÍ">Arapeí</option>
-                <option value="AREIAS">Areias</option>
-                <option value="ATIBAIA">Atibaia</option>
-                <option value="BRAGANÇA PAULISTA">Bragança Paulista</option>
-                <option value="CAÇAPAVA">Caçapava</option>
-                <option value="CACHOEIRA PAULISTA">Cachoeira Paulista</option>
-                <option value="CAMPOS DO JORDÃO">Campos do Jordão</option>
-                <option value="CARAGUATATUBA">Caraguatatuba</option>
-                <option value="CRUZEIRO">Cruzeiro</option>
-                <option value="CUNHA">Cunha</option>
-                <option value="GUARATINGUETÁ">Guaratinguetá</option>
-                <option value="IGARATÁ">Igaratá</option>
-                <option value="ILHABELA">Ilhabela</option>
-                <option value="JOANÓPOLIS">Joanópolis</option>
-                <option value="LORENA">Lorena</option>
-                <option value="NATIVIDADE DA SERRA">Natividade da Serra</option>
-                <option value="PARAIBUNA">Paraibuna</option>
-                <option value="PINDAMONHANGABA">Pindamonhangaba</option>
-                <option value="PIQUETE">Piquete</option>
-                <option value="PIRACAIA">Piracaia</option>
-                <option value="POTIM">Potim</option>
-                <option value="QUELUZ">Queluz</option>
-                <option value="ROSEIRA">Roseira</option>
-                <option value="SANTA BRANCA">Santa Branca</option>
-                <option value="SANTO ANTÔNIO DO PINHAL">Santo Antônio do Pinhal</option>
-                <option value="SÃO JOSÉ DOS CAMPOS">São José dos Campos</option>
-                <option value="SÃO SEBASTIÃO">São Sebastião</option>
-                <option value="SILVEIRAS">Silveiras</option>
-                <option value="TAUBATÉ">Taubaté</option>
-                <option value="TREMEMBÉ">Tremembé</option>
-                <option value="UBATUBA">Ubatuba</option>
-        </select>
+                <option value="APARECIDA">APARECIDA</option>
+                <option value="ARAPEÍ">ARAPEÍ</option>
+                <option value="AREIAS">AREIAS</option>
+                <option value="ATIBAIA">ATIBAIA</option>
+                <option value="BRAGANÇA PAULISTA">BRAGANÇA PAULISTA</option>
+                <option value="CAÇAPAVA">CAÇAPAVA</option>
+                <option value="CACHOEIRA PAULISTA">CACHOEIRA PAULISTA</option>
+                <option value="CAMPOS DO JORDÃO">CAMPOS DO JORDÃO</option>
+                <option value="CARAGUATATUBA">CARAGUATATUBA</option>
+                <option value="CRUZEIRO">CRUZEIRO</option>
+                <option value="CUNHA">CUNHA</option>
+                <option value="GUARATINGUETÁ">GUARATINGUETÁ</option>
+                <option value="IGARATÁ">IGARATÁ</option>
+                <option value="ILHABELA">ILHABELA</option>
+                <option value="JOANÓPOLIS">JOANÓPOLIS</option>
+                <option value="LORENA">LORENA</option>
+                <option value="NATIVIDADE DA SERRA">NATIVIDADE DA SERRA</option>
+                <option value="PARAIBUNA">PARAIBUNA</option>
+                <option value="PINDAMONHANGABA">PINDAMONHANGABA</option>
+                <option value="PIQUETE">PIQUETE</option>
+                <option value="PIRACAIA">PIRACAIA</option>
+                <option value="POTIM">POTIM</option>
+                <option value="QUELUZ">QUELUZ</option>
+                <option value="ROSEIRA">ROSEIRA</option>
+                <option value="SANTA BRANCA">SANTA BRANCA</option>
+                <option value="SANTO ANTÔNIO DO PINHAL">SANTO ANTÔNIO DO PINHAL</option>
+                <option value="SÃO JOSÉ DOS CAMPOS">SÃO JOSÉ DOS CAMPOS</option>
+                <option value="SÃO SEBASTIÃO">SÃO SEBASTIÃO</option>
+                <option value="SILVEIRAS">SILVEIRAS</option>
+                <option value="TAUBATÉ">TAUBATÉ</option>
+                <option value="TREMEMBÉ">TREMEMBÉ</option>
+                <option value="UBATUBA">UBATUBA</option>
+              </select>
+            </div>
 
-         <select name="genero" class="custom-select my-1 mr-sm-2">
-             <option value="">SELECIONE O GÊNERO</option>
-             <option value="MASCULINO">MASCULINO</option>
-             <option value="FEMININO">FEMININO</option>
-             <option value="NÃO INFORMADO">NÃO INFORMADO</option>
-        </select>
+            <div class="select-wrap">
+              <label for="genero">Gênero</label>
+              <select id="genero" name="genero" class="custom-select mr-sm-2">
+                <option value="">SELECIONE O GÊNERO</option>
+                <option value="MASCULINO">MASCULINO</option>
+                <option value="FEMININO">FEMININO</option>
+                <option value="NÃO INFORMADO">NÃO INFORMADO</option>
+              </select>
+            </div>
 
-        <select name="estadoCivil" class="custom-select my-1 mr-sm-2">
-             <option value="">SELECIONE O ESTADO CIVIL</option>
-             <option value="CASADO">CASADO</option>
-             <option value="NÃO INFORMADO">NÃO INFORMADO</option>
-             <option value="SEPARADO JUDICIALMENTE">SEPARADO JUDICIALMENTE</option>
-             <option value="SOLTEIRO">SOLTEIRO</option>
-             <option value="VIÚVO">VIÚVO</option>
-        </select>
+            <div class="select-wrap">
+              <label for="estadoCivil">Estado Civil</label>
+              <select id="estadoCivil" name="estadoCivil" class="custom-select mr-sm-2">
+                <option value="">SELECIONE O ESTADO CIVIL</option>
+                <option value="CASADO">CASADO</option>
+                <option value="NÃO INFORMADO">NÃO INFORMADO</option>
+                <option value="SEPARADO JUDICIALMENTE">SEPARADO JUDICIALMENTE</option>
+                <option value="SOLTEIRO">SOLTEIRO</option>
+                <option value="VIÚVO">VIÚVO</option>
+              </select>
+            </div>
 
-        <select name="filtro" required>
-          <option value="">SELECIONE O FILTRO</option>
-          <option value="DS_GÊNERO">Gênero</option>
-          <option value="DS_GRAU_ESCOLARIDADE">Escolaridade</option>
-            <option value="5MAIORES">5 MAIORES CIDADES</option>
-            <option value="POPIDOSO">ELEITORES ACIMA DOS 60</option>
-            <option value="IDADES">IDADES</option>
-        </select>
+            <div class="select-wrap">
+              <label for="filtro">Filtro</label>
+              <select id="filtro" name="filtro" required class="custom-select mr-sm-2">
+                <option value="">SELECIONE O FILTRO</option>
+                <option value="DS_GÊNERO">GÊNERO</option>
+                <option value="DS_GRAU_ESCOLARIDADE">ESCOLARIDADE</option>
+                <option value="POPIDOSO">ELEITORES ACIMA DOS 60</option>
+                <option value="IDADES">IDADES</option>
+              </select>
+            </div>
 
-        <select name="ano">
-          <option value="">SELECIONE O ANO</option>
-          <option value="2020">2020</option>
-          <option value="2018">2018</option>
-        </select>
+            <div class="select-wrap">
+              <label for="ano">Ano da Eleição</label>
+              <select id="ano" name="ano" class="custom-select mr-sm-2">
+                <option value="">SELECIONE O ANO</option>
+                <option value="2022">2022</option>
+                <option value="2018">2018</option>
+              </select>
+            </div>
 
-        <select name="grafico" class="custom-select my-1 mr-sm-2">
-          <option value="bar">TIPO DO GRÁFICO</option>
-          <option value="bar">BARRA</option>
-          <option value="line">LINHA</option>
-        </select>
+            <div class="select-wrap">
+              <label for="grafico">Tipo do Gráfico</label>
+              <select id="grafico" name="grafico" class="custom-select mr-sm-2">
+                <option value="bar">TIPO DO GRÁFICO</option>
+                <option value="bar">BARRA</option>
+                <option value="line">LINHA</option>
+              </select>
+            </div>
 
-        <button class="buttonSearch" type="submit" >Buscar Dados</button>
-      </form>
+            <button class="buttonSearch" type="submit" >BUSCAR DADOS</button>
+        </form>
 
-
+      </div>
       <div class="titulo">
           <div class="card" style="width: 18rem;">
               <div class="card-body">
@@ -126,20 +141,16 @@
           </div>
       </div>
 
-
-  </div>
-
-
-
-    <div class="graphic">
-      <span style="font-size:12px;text-align:center; margin-top: 5px;">* Caso nenhum ano seja selecionado, por padrão utilizaremos o ano mais recente</span>
-      <div class="chart-container">
-        <canvas class="line-chart"></canvas>
+      <div class="graphic">
+        <span style="font-size:12px;text-align:center; margin-top: 5px;">* Caso nenhum ano seja selecionado, por padrão utilizaremos o ano mais recente</span>
+        <div class="chart-container">
+          <canvas class="line-chart"></canvas>
+        </div>
+        {% if result['qtdGenNaoInfo'] %}
+        <span style="text-align:center;font-size: 20px; color: red;margin-top:-10px;">Quantidade de eleitores que não informaram: {{ result['qtdGenNaoInfo']}}</span>
+        {% endif %}
       </div>
-      {% if result['qtdGenNaoInfo'] %}
-      <span style="text-align:center;font-size: 20px; color: red;margin-top:-10px;">Quantidade de eleitores que não informaram: {{ result['qtdGenNaoInfo']}}</span>
-      {% endif %}
-    </div>
+    </section>
   </section>
 
 

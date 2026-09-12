@@ -1,8 +1,6 @@
 from flask import Flask , request, render_template, url_for, redirect
 from functions import functionsProject as fp
 
-
-
 app = Flask(__name__, template_folder='pages')
 
 @app.route('/pages/index.html')
@@ -38,23 +36,19 @@ def resultSearch():
     graph = request.args.get('grafico')
     ano = request.args.get('ano')
 
-    anoSelecionado = fp.anoEleicao(ano)
-
     if graph != 'bar' and graph != 'line':
         return redirect(
             url_for('resultSearchOthers', cidade=cidade, genero=genero, estadoCivil=estadoCivil, filtro=filtro,
                     graph=graph))
 
     if filtro == 'DS_GRAU_ESCOLARIDADE':
-        resultado = fp.pesquisaEscolaridade(cidade, genero, estadoCivil, graph, ano,anoSelecionado)
+        resultado = fp.pesquisaEscolaridade(cidade, genero, estadoCivil, graph, ano)
     elif filtro == 'DS_GÊNERO':
-        resultado = fp.divisaoGeneroCidade(cidade, genero, estadoCivil, graph,ano, anoSelecionado)
-    elif filtro == '5MAIORES':
-        resultado = fp.maioresCidades(cidade, genero, estadoCivil, graph, ano,anoSelecionado)
+        resultado = fp.divisaoGeneroCidade(cidade, genero, estadoCivil, graph,ano)
     elif filtro == 'POPIDOSO':
-        resultado = fp.populacaoIdosa(cidade, genero, estadoCivil, graph,ano, anoSelecionado)
+        resultado = fp.populacaoIdosa(cidade, genero, estadoCivil, graph,ano)
     elif filtro == 'IDADES':
-        resultado = fp.pesquisaIdade(cidade, genero, estadoCivil, graph,ano, anoSelecionado)
+        resultado = fp.pesquisaIdade(cidade, genero, estadoCivil, graph,ano)
 
 
     return render_template('resultSearch.html', result=resultado)
@@ -70,18 +64,14 @@ def resultSearchOthers():
     graph = request.args.get('graph')
     ano = request.args.get('ano')
 
-    anoSelecionado = fp.anoEleicao(ano)
-
     if filtro == 'DS_GRAU_ESCOLARIDADE':
-        resultado = fp.pesquisaEscolaridade(cidade, genero, estadoCivil, graph, ano,anoSelecionado)
+        resultado = fp.pesquisaEscolaridade(cidade, genero, estadoCivil, graph, ano)
     elif filtro == 'DS_GÊNERO':
-        resultado = fp.divisaoGeneroCidade(cidade, genero, estadoCivil, graph,ano, anoSelecionado)
-    elif filtro == '5MAIORES':
-        resultado = fp.maioresCidades(cidade, genero, estadoCivil, graph, ano,anoSelecionado)
+        resultado = fp.divisaoGeneroCidade(cidade, genero, estadoCivil, graph,ano)
     elif filtro == 'POPIDOSO':
-        resultado = fp.populacaoIdosa(cidade, genero, estadoCivil, graph, ano,anoSelecionado)
+        resultado = fp.populacaoIdosa(cidade, genero, estadoCivil, graph, ano)
     elif filtro == 'IDADES':
-        resultado = fp.pesquisaIdade(cidade, genero, estadoCivil, graph,ano, anoSelecionado)
+        resultado = fp.pesquisaIdade(cidade, genero, estadoCivil, graph,ano)
 
     return render_template('resultSearchOthers.html', result=resultado)
 
